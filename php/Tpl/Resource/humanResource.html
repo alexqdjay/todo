@@ -1,0 +1,36 @@
+<layout name="Layout/layout"/>
+
+<!-- Humace Resouce List -->
+<div class="row-fluid">
+    <div class="span12">
+        <table class="table" id="humanTable">
+            <thead>
+                <th style="width: 100px;">#</th>
+                <th>周一</th>
+                <th>周二</th>
+                <th>周三</th>
+                <th>周四</th>
+                <th>周五</th>
+                <th class="th6">周六</th>
+                <th class="th7">周日</th>
+            </thead>
+            <tbody>
+                <volist name="list" id="data">
+                    <tr id="u_{$data.id}" data-id="{$data.id}">
+                        <td>{$data.name}</td>
+                        <td class="wk1"></td>
+                        <td class="wk2"></td>
+                        <td class="wk3"></td>
+                        <td class="wk4"></td>
+                        <td class="wk5"></td>
+                        <td class="wk6"></td>
+                        <td class="wk7"></td>
+                    </tr>
+                </volist>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<link rel='stylesheet' type='text/css' href='__URL__/../src/css/humanResource.css'/>
+<script type="text/javascript" src="__URL__/../src/js/humanResource.js"></script>

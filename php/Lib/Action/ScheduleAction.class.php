@@ -119,4 +119,46 @@ class ScheduleAction extends AuthAction{
         }
     }
 
+	public function listOneWeek($start=0) {
+        //get peoples' id
+        $uid = $_SESSION['uid'];
+        $me = M('user')->where('id='.$uid)->find();
+        if($me['group']=='admin' || $me['group'] == 'manager') {
+            $users = M('user')->field('id')->where(array("group"=>array("NEQ",'admin1')))->select();
+        }
+
+        // ts region
+        if($start == 0) {
+            $theday = getdate();
+        }
+        else {
+            $theday = getdate($start);
+        }
+        $theday_0_ts = mktime(0,0,0,$theday['mon'],$theday['mday'],$theday['year']);
+        if($theday['wday'] ==0) {
+            $n = 6;
+        }
+        else {
+            $n = $theday['wday'] -1;
+        }
+        $mon_0_ts = $theday_0_ts - $n*24*3600;
+        $next_mon_0_ts = $mon_0_ts + 24*3600*7;
+
+        // get schedule data
+        $S = M('schedule');
+        $rs = array();
+        $where = array(
+            "start"=>array('LT',$next_mon_0_ts),
+            "end"=>array('GT',$mon_0_ts)
+        );
+        foreach($users as $user) {
+            $where['user_id'] = $user['id'];
+            $data = $S->where($where)->select();
+            $rs[$user['id']] = $data;
+        }
+
+        $this->ajaxReturn($rs);
+
+    }
+
 }
