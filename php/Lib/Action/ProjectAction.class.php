@@ -9,7 +9,7 @@
 
 class ProjectAction extends AuthAction{
 
-    public function save($id=null,$name=null,$type=null,$time=0,$manager_id=null,
+    public function save($id=null,$name=null,$type=null,$time=0,$manager_id=null,$start=0,
                          $engineers="",$director_id=null){
         $P = M('project');
         $data = array();
@@ -19,11 +19,11 @@ class ProjectAction extends AuthAction{
         $data['time'] = $time;
         $data['manager_id'] = $manager_id;
         $data['director_id'] = $director_id;
+        $data['start'] = $start;
         if($id != null) {
             $b = $P->where(array('id'=>$id))->save($data);
         }
         else {
-
             $b = $P->add($data);
             $id = $b;
         }

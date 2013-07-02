@@ -23,7 +23,7 @@
                         <td>{$vo.id}</td>
                         <td><a href="__URL__/../Project/projectProfile/pid/{$vo.id}" target="_blank">{$vo.name}</a></td>
                         <td><?php
-                            echo date('m/d/Y',$vo['time']);
+                            echo date('m/d/Y',$vo['start']).' - '.date('m/d/Y',$vo['time']);
                         ?></td>
                         <td>{$vo.manager}</td>
                         <td class="action_td">

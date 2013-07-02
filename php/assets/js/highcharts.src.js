@@ -1477,7 +1477,7 @@ defaultLabelOptions = {
 };
 
 defaultOptions = {
-	colors: ['#2f7ed8', '#910000', '#0d233a', '#1aadce','#8bbc21',  '#492970',
+	colors: ['#2f7ed8', '#0d233a', '#8bbc21', '#910000', '#1aadce', '#492970',
 		'#f28f43', '#77a1e5', '#c42525', '#a6c96a'],
 	symbols: ['circle', 'diamond', 'square', 'triangle', 'triangle-down'],
 	lang: {

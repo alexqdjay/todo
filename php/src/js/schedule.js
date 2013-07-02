@@ -17,6 +17,10 @@ var sourceMapCount = 0;
 //var colors = ['#33cdc7'];
 
 $(function(){
+    $.each(colors,function(i,item){
+        colorsMap[i] = null;
+    });
+
     $.fn.datepicker.noConflict();
     // init datetime
     $( "#inputFTime" ).datepicker({
@@ -171,8 +175,8 @@ $(function(){
         var pid;
         // add
         if(e.added  != undefined) {
-            var color = getEventColor();
             pid = e.added.id;
+            var color = getEventColor(pid);
             source = {
                 url:URL+'/../Schedule/getOtherPeopleData?oid='+pid+"&uid="+UID,
                 color:color
@@ -333,6 +337,12 @@ function removeSource(id) {
     sourceMapCount --;
     if(sourceMapCount <0)sourceMapCount=0;
     sourceMap["s_"+id] = null;
+    for(var k in colorsMap){
+        alert(k+"="+colorsMap[k]);
+        if(colorsMap[k] == id) {
+            colorsMap[k] = null;
+        }
+    }
 }
 
 function addUserSource(id,text,color) {
@@ -348,11 +358,23 @@ function removeUserSource(id) {
     });
 }
 
-function getEventColor() {
-    var r = Math.floor(Math.random()*256);
-    var g = Math.floor(Math.random()*256);
-    var b = Math.floor(Math.random()*256);
-    return "#"+r.toString(16)+g.toString(16)+b.toString(16);
+var colors = ['#2f7ed8',  '#8bbc21', '#910000', '#1aadce', '#492970',
+    '#f28f43', '#77a1e5', '#c42525', '#a6c96a','#0d233a'];
+var colorsMap = {};
+function getEventColor(pid) {
+    var color = '#2f7ed8';
+    for(var i=0;i<colors.length;i++) {
+        if(colorsMap[i] == null) {
+            colorsMap[i] = pid;
+            color = colors[i];
+            break;
+        }
+    }
+    return color;
+//    var r = Math.floor(Math.random()*256);
+//    var g = Math.floor(Math.random()*256);
+//    var b = Math.floor(Math.random()*256);
+//    return "#"+r.toString(16)+g.toString(16)+b.toString(16);
 }
 
 function containSource(id) {

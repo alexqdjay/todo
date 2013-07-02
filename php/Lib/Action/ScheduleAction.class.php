@@ -60,7 +60,7 @@ class ScheduleAction extends AuthAction{
         $S = M('Schedule');
         $where = array(
             'user_id'=>$uid,
-            '_string'=>"start<$end or end>=$start"
+            '_string'=>"schedule.start<$end or schedule.end>=$start"
         );
         $datas = $S->join(array('project on project.id=schedule.project_id','user on user.id=createby'))->where($where)
             ->field('schedule.*,project.name,user.name createuser')->select();
@@ -77,7 +77,7 @@ class ScheduleAction extends AuthAction{
         $where = array(
             'createby'=>$uid,
             'user_id'=>array('NEQ',$uid),
-            '_string'=>"start<$end or end>=$start"
+            '_string'=>"schedule.start<$end or schedule.end>=$start"
         );
         $datas = $S->join(array('project on project.id=schedule.project_id','user on user.id=createby'))->where($where)
             ->field('schedule.*,project.name,user.name createuser')->select();
@@ -93,7 +93,7 @@ class ScheduleAction extends AuthAction{
         $where = array(
             'user_id'=>$oid,
             'createby'=>array('NEQ',$uid),
-            '_string'=>"start<$end or end>=$start"
+            '_string'=>"schedule.start<$end or schedule.end>=$start"
         );
         $datas = $S->join(array('project on project.id=schedule.project_id'))->where($where)
             ->field('schedule.*,project.name')->select();

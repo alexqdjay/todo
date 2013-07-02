@@ -25,6 +25,7 @@ $(function(){
 
     // init calender
     $('#inputTime').datepicker();
+    $('#inputTimeStart').datepicker();
 
     // init select mamager
     $('#inputManager').select2();
@@ -67,6 +68,7 @@ function initProjEidt(data) {
         data={
             "id":null,
             "name":"",
+            "start":d.getTime()/1000+"",
             "time": d.getTime()/1000+"",
             "type":null,
             "director_id":null,
@@ -80,7 +82,7 @@ function initProjEidt(data) {
             continue;
         }
         var v = data[k];
-        if(k == "time" && v != null && v.length >0) {
+        if((k == "time" || k =="start") && v != null && v.length >0) {
             var d = new Date();
             d.setTime(parseInt(v)*1000);
             v = $.datepicker.formatDate('mm/dd/yy',d);
@@ -107,6 +109,8 @@ function onSaveProj() {
     }
     var date = $.datepicker.parseDate("mm/dd/yy",data['time']);
     data['time'] = date.getTime()/1000;
+    date = $.datepicker.parseDate("mm/dd/yy",data['start']);
+    data['start'] = date.getTime()/1000;
     $.ajax({
         url:URL+'/../Project/save',
         data:data,

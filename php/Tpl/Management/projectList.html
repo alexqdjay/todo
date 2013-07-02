@@ -28,7 +28,7 @@
                     <td>{$vo.id}</td>
                     <td>{$vo.name}</td>
                     <td><?php
-                            echo date('m/d/Y',$vo['time']);
+                            echo date('m/d/Y',$vo['start']).' - '.date('m/d/Y',$vo['time']);
                         ?></td>
                     <td>{$vo.username}</td>
                     <td><?php
@@ -71,10 +71,16 @@
                 <div class="control-group">
                     <label class="control-label" for="inputTime">执行期</label>
                     <div class="controls">
-                        <div class="input-append date span6" id="inputTime" data-date="12-02-2012" data-date-format="mm/dd/yyyy">
+                        <div class="input-append date span2" id="inputTimeStart" data-date="12-02-2012" data-date-format="mm/dd/yyyy">
+                            <input class="span11" size="16" type="text" value="12/02/2012" readonly name="start" data-required="true">
+                            <span class="add-on"><i class="icon-th"></i></span>
+                        </div>
+                        <span class="span1" style="width:20px;margin-top:3px;margin-left:40px;">至</span>
+                        <div class="input-append date span2" id="inputTime" data-date="12-02-2012" data-date-format="mm/dd/yyyy">
                             <input class="span11" size="16" type="text" value="12/02/2012" readonly name="time" data-required="true">
                             <span class="add-on"><i class="icon-th"></i></span>
                         </div>
+
                         <!--input type="text" id="inputTime" name="time" placeholder="" class="span6"
                                 data-required="true"-->
                     </div>
