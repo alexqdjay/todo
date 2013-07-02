@@ -1,0 +1,203 @@
+<layout name="Layout/layout"/>
+<script>
+    var UID = {$uid};
+</script>
+<div class="row-fluid">
+    <div class="span9">
+        <div class="row-fluid" style="margin-bottom: 10px; margin-top: 10px;">
+            <!--<div class="input-append">
+                <input type="text" autocomplete="off" id="userSelect" class="span4" placeholder="输入查询的人">
+                <span class="add-on"><i class="icon-search"></i></span>
+            </div>-->
+            <input autocomplete="off" id="userSelect" class="span6"
+                   multiple="multiple" type="hidden">
+
+        </div>
+        <div class="row-fluid">
+            <div class="span12"  style="min-height: 400px;">
+                <div id="cal" class="fn-cal"></div>
+            </div>
+        </div>
+    </div>
+    <div class="span3" id="subBar" style=" margin-top: 10px;">
+
+        <div class="row-fluid">
+            <div class="span12 fn-box">
+                <div class="fn-box-title">
+                    <i class="icon-user"></i>
+                    <small>用户</small>
+                </div>
+                <div class="fn-box-content">
+                    <ul id="userSourceList">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- quick tag-->
+        <div class="row-fluid">
+            <div class="span12 fn-box">
+                <div class="fn-box-title">
+                    <i class="icon-tag"></i>
+                    <small>快速添加</small>
+                </div>
+                <div class="fn-box-content">
+                    <ul id="topSchdule">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Slide Panel-->
+<div id="projectSlide" class="" style="visibility: hidden;">
+    <div class="container-fluid">
+        <!-- Toolbar-->
+        <div class="row-fluid" id="tbar">
+            <a class="fn-btn" onclick="editReturn()" style="margin-left: 20px">返回</a>
+            <a class="fn-btn fn-btn-primary" onclick="editSave();">保存</a>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span12">
+                <form class="form-horizontal" autocomplete="off">
+                    <input type="hidden" id="inputId" name="id">
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="text" placeholder="分配给*" class="span4"
+                                   name="owner" data-required="true" id="selectOwner">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <select class="span8" name="project" placeholder="项目*" id="selectProject"
+                                    data-required="true">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="text" id="inputsubject" name="subject" placeholder="标题*"
+                                   class="span8" data-required="true" data-maxlength="32">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <select id="selectAddr" name="addr" placeholder="地点*" class="span8">
+                                <option class="fn-select-option" value="0">现场</option>
+                                <option class="fn-select-option" value="1">公司</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls controls-row" id="datetime">
+                            <input type="text" id="inputFTime" name="startDate" class="span2 date"
+                                   data-provide="datepicker" data-required="true" data-reg="\d{2}/\d{2}/\d{4}">
+                            <select name="startTime" class="span2 time" id="startTime">
+                                <option value="0" selected="true" class="fn-select-option">上午09:00</option>
+                                <option value="1" class="fn-select-option">中午12:00</option>
+                                <option value="2" class="fn-select-option">下午17:00</option>
+                                <option value="3" class="fn-select-option">晚上21:00</option>
+                            </select>
+                            <span style="float: left;margin: 5px 7px 0px;">到</span>
+                            <input type="text" id="inputTTime" name="endDate" class="span2 date"
+                                   data-provide="datepicker"  data-required="true">
+                            <select name="endTime" class="span2 time" id="endTime">
+                                <option value="0" class="fn-select-option">上午09:00</option>
+                                <option value="1" class="fn-select-option">中午12:00</option>
+                                <option value="2" class="fn-select-option" selected='true'>下午17:00</option>
+                                <option value="3" class="fn-select-option">晚上21:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="checkbox">
+                                <input type="checkbox" onclick="onTimeModeChange()" name="mode">全天
+                            </label>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <textarea rows="4" placeholder="简述" class="span8" data-maxlength="128" name='desc'></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group" style="margin-top: 60px;">
+                        <div class="controls">
+                            <div class="span8">
+                                <blockquote class="pull-right" id="signature">
+                                    by:<p></p>
+                                    <small>06/05/2013</small>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Model -->
+<div class="modal hide fade" id="confirmDel">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>确认</h3>
+    </div>
+    <div class="modal-body">
+        <p>确认删除?</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="fn-btn" data-dismiss="modal" aria-hidden="true">关闭</a>
+        <a href="#" class="fn-btn fn-btn-primary" onclick="onConfirmDel();">确认</a>
+    </div>
+</div>
+
+<!-- Model Schedule -->
+<div class="modal hide fade" id="scheduleEditWin">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>新日程</h3>
+    </div>
+    <div class="modal-body">
+        <div class="control-group">
+           <div class="controls">
+               <input type="text" id="winInputSubject" name="subject"
+                      placeholder="标题*" style="margin-left: 10px;"
+                      class="span5" data-required="true" data-maxlength="32">
+           </div>
+        </div>
+        <div class="control-group">
+           <div class="controls">
+               <select name="endTime" class="span2 time" id="winStartTime"  style="margin-left: 10px;">
+                   <option value="0" class="fn-select-option" selected>上午09:00</option>
+                   <option value="1" class="fn-select-option">中午12:00</option>
+                   <option value="2" class="fn-select-option">下午17:00</option>
+                   <option value="3" class="fn-select-option">晚上21:00</option>
+               </select>
+               <span style="margin: 0px 7px;">到</span>
+               <select name="endTime" class="span2 time" id="winEndTime">
+                   <option value="0" class="fn-select-option">上午09:00</option>
+                   <option value="1" class="fn-select-option">中午12:00</option>
+                   <option value="2" class="fn-select-option" selected='true'>下午17:00</option>
+                   <option value="3" class="fn-select-option">晚上21:00</option>
+               </select>
+           </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="fn-btn" data-dismiss="modal" aria-hidden="true">关闭</a>
+        <a href="#" class="fn-btn fn-btn-primary" onclick="onConfirmCreateNew()">确认</a>
+    </div>
+</div>
+
+<link rel='stylesheet' type='text/css' href='__URL__/../assets/css/fullcalendar.css'/>
+<link rel='stylesheet' type='text/css' href='__URL__/../assets/css/datepicker.css'/>
+<link rel='stylesheet' type='text/css' href='__URL__/../src/css/schedule.css'/>
+<script type='text/javascript' src='__URL__/../assets/js/fullcalendar_zh-cn.js'></script>
+<script type='text/javascript' src='__URL__/../src/js/schedule.js'></script>

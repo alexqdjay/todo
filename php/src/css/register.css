@@ -1,0 +1,59 @@
+html{
+    background-color: #28303A;
+    background: linear-gradient(to left, #758A9F 0%, #28303A 100%) repeat scroll 0 0 transparent;
+    background: -webkit-gradient(linear,0% 0%,100% 100%, to(rgba(117,138,159,.7)), from(rgba(40,48,58,1)));
+    background:-webkit-linear-gradient(right, #758A9F , #28303A );/*webkit*/
+    background-repeat:no-repeat;
+    height: 100%;
+}
+
+body{
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+#main {
+    background-color: #f0f0f0;
+    box-shadow: 0px 4px 8px rgba(0,0,0,1);
+    height: 85%;
+}
+.mainContainer{
+    margin-top: 50px;
+    background-color: #ffffff;
+    height: 100%;
+    overflow: auto;
+}
+
+#logo {
+    color: #ffffff;
+    padding: 10px 20px;
+    line-height: 20px;
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+#logo i{
+    font-size: 17px;
+    color: #1299da;
+}
+
+.page-header{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+form label{
+    font-size: 12px;
+    color: #777;
+}
+
+input.invalid {
+    border-color: #E9322D;
+    box-shadow: 0px 0px 6px #F8B9B7;
+}

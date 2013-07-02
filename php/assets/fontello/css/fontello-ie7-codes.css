@@ -1,0 +1,21 @@
+
+.ficon-pause { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x2389;&nbsp;'); }
+.ficon-stop { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x25a0;&nbsp;'); }
+.ficon-play { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x25b6;&nbsp;'); }
+.ficon-right { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x27a1;&nbsp;'); }
+.ficon-left { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x2b05;&nbsp;'); }
+.ficon-down-open { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe75c;&nbsp;'); }
+.ficon-left-open { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe75d;&nbsp;'); }
+.ficon-right-open { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe75e;&nbsp;'); }
+.ficon-up-open { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe75f;&nbsp;'); }
+.ficon-spin1 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe830;&nbsp;'); }
+.ficon-spin2 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe831;&nbsp;'); }
+.ficon-spin5 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe838;&nbsp;'); }
+.ficon-firefox { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe840;&nbsp;'); }
+.ficon-chrome { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe841;&nbsp;'); }
+.ficon-ie { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe843;&nbsp;'); }
+.ficon-users { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe800;&nbsp;'); }
+.ficon-volume-off { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x1f507;&nbsp;'); }
+.ficon-volume-down { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x1f509;&nbsp;'); }
+.ficon-volume-up { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x1f50a;&nbsp;'); }
+.ficon-clock { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x1f554;&nbsp;'); }

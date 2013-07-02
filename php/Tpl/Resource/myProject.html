@@ -1,0 +1,48 @@
+<layout name="Layout/layout"/>
+<div class="row-fluid">
+    <ul class="nav nav-tabs" style="margin:5px 0px;">
+        <li class="active">
+            <a href="#">我的项目</a>
+        </li>
+        <li><a href="__URL__/allProject">所有项目</a></li>
+    </ul>
+</div>
+<div class="row-fluid">
+    <div class="span12" id="projList">
+        <table class="table table-striped fn-table">
+            <thead>
+                <th>#</th>
+                <th>名称</th>
+                <th>执行期</th>
+                <th>项目管理</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+                <volist name="list" id="vo">
+                    <tr id="pro_{$vo.id}">
+                        <td>{$vo.id}</td>
+                        <td><a href="__URL__/../Project/projectProfile/pid/{$vo.id}" target="_blank">{$vo.name}</a></td>
+                        <td><?php
+                            echo date('m/d/Y',$vo['time']);
+                        ?></td>
+                        <td>{$vo.manager}</td>
+                        <td class="action_td">
+                            <?php
+                            if($vo['manager'] != $MyName)
+                                echo '<a class="fn-btn fn-btn-danger" style="width:90px;"
+                                    onclick="onQuitProj('.$vo['id'].');">取消关注</a>';
+                                else
+                                    echo '<a class="fn-btn disabled" style="width:90px;">取消关注</a>';
+                            ?>
+                        </td>
+                    </tr>
+                </volist>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    var UID = {$uid};
+</script>
+<script type='text/javascript' src='__URL__/../src/js/myprojecy.js'></script>
+

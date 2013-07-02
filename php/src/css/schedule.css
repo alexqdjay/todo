@@ -1,0 +1,97 @@
+#projectSlide{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left:0px;
+    top:0px;
+    background-color: #ffffff;
+    z-index: 10;
+}
+#projectSlide > .container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+
+}
+
+#projectSlide > .container-fluid > .row-fluid{
+    padding-top: 15px;
+}
+
+#tbar{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #DEE3EA;
+}
+
+#projectSlide .form-horizontal .control-group .controls {
+    margin-left: 50px;
+}
+
+.fc-view {
+    overflow: visible;
+}
+
+.popover{
+    width: 290px;
+}
+
+.fn-box-content ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.fn-box-content ul li{
+    padding: 3px 5px;
+    margin: 2px;
+}
+
+.fn-box-content li{
+    cursor: pointer;
+    background-color: #0083BB;
+    color: #ffffff;
+    font-size: 13px;
+    border-radius: 3px;
+}
+
+.fn-box-content li:hover{
+    opacity: .75;
+}
+
+
+#subBar  .fn-box{
+    border: 1px solid #dddddd;
+}
+
+#subBar .row-fluid {
+    margin-bottom: 10px;
+}
+
+.fn-box-title i[class^="icon-"] {
+    margin-top: 5px;
+    opacity: .6;
+}
+.fn-box-title {
+    background-color: #fafafa;
+    padding: 3px 5px;
+    color: #777777;
+    vertical-align: middle;
+    border-bottom:1px solid #f0f0f0 ;
+}
+.fn-box-content {
+    min-height: 30px;
+    padding: 3px 5px;
+}
+
+#signature{
+    text-align: right;
+    color: #999;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+#signature p{
+    font-size: 14px;
+    color: #999;
+    display: inline-block;
+    margin-left: 10px;
+}

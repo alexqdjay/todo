@@ -1,0 +1,29 @@
+.fn-table td{
+}
+
+.fn-table tr.active td{
+    background-color: #f5fafc;
+}
+
+.fn-table thead th{
+}
+
+.table tbody  td {
+}
+
+.fn-table-hover tbody tr:hover td,
+.fn-table-hover tbody tr:hover th {
+    background-color: #f5fafc;
+}
+
+#partnerTable tbody{
+    background-color: #f5fafc;
+}
+
+.table tbody  tr{
+    border-right: 1px solid #eeeeee;
+}
+
+.table tbody  tr.active {
+    border-right: 1px solid #f5fafc;
+}

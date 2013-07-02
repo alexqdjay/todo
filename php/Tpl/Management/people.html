@@ -1,0 +1,68 @@
+<layout name="Layout/layout"/>
+<div class="row-fluid" style="padding-top: 10px;">
+
+    <!--  People Table  -->
+    <div class="span9">
+        <div class="input-prepend">
+            <span class="add-on"><i class="icon-search"></i></span>
+            <select id="userSelect" class="placeholder">
+                <volist name="list" id="data">
+                    <option data-id="{$data.id}">{$data.name}</option>
+                </volist>
+            </select>
+        </div>
+        <table class="table fn-table-hover fn-table" id="peopleTable">
+            <thead>
+                <th>#</th>
+                <th>名字</th>
+                <th>用户名</th>
+                <th>Mail</th>
+                <th>电话</th>
+                <th>分组</th>
+            </thead>
+            <tbody>
+                <volist name="list" id="p">
+                    <tr data-id="{$p.id}">
+                        <td>{$p.id}</td>
+                        <td>{$p.name}</td>
+                        <td>{$p.username}</td>
+                        <td>{$p.email}</td>
+                        <td>{$p.tel}</td>
+                        <td>{$p.group}</td>
+                    </tr>
+                </volist>
+            </tbody>
+        </table>
+    </div>
+
+    <!--    Members list   -->
+    <div class="span3" style="margin-left:0;">
+        <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" id="partnerSelect">
+        </div>
+        <table class="table fn-table" id="partnerTable">
+            <thead>
+                <th>
+                    成员名字
+                </th>
+                <th>
+
+                </th>
+            </thead>
+            <tbody>
+                <!--tr>
+                    <td>item.name</td>
+                    <td>
+                        <a class="fn-btn fn-btn-danger" style="width:15px;" title="删除">
+                            <i class="icon-trash icon-white"></i>
+                        </a>
+                    </td>
+                </tr-->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<link rel='stylesheet' type='text/css' href='__URL__/../src/css/people.css'/>
+<script type='text/javascript' src='__URL__/../src/js/people.js'></script>

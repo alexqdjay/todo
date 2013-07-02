@@ -1,0 +1,88 @@
+<div id="sidebar">
+    <ul id="sbarList" class="accordion">
+        <!--   Dash Board -->
+        <li class="accordion-group <?php if($NAI=='home') echo 'active';?>">
+            <div class="accordion-heading">
+                <a class="accordion-toggle accordion-item" id="indexNav" href="__URL__/../Index/home">
+                    <i class="icon-home"></i>首页
+                </a>
+            </div>
+        </li>
+
+        <!-- Schedule Manage -->
+        <li class="accordion-group <?php if($NAI=='schedule') echo 'active';?>">
+            <div class="accordion-heading">
+                <a class="accordion-toggle accordion-item" id="scheduleNav" href="__URL__/../Schedule/index">
+                    <i class="icon-calendar"></i><span>日程管理</span>
+                </a>
+            </div>
+        </li>
+
+        <!-- My Resource -->
+        <li class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse"  href="#resourceManager">
+                    <i class="icon-briefcase"></i><span>我的资源</span>
+                </a>
+            </div>
+            <ul id="resourceManager" class="accordion-body collapse <?php if($NAI=='myProject' || $NAI == 'allProject') echo 'in';?>">
+                <li class="accordion-inner <?php if($NAI=='myProject'|| $NAI == 'allProject') echo 'active';?>">
+                    <a class="accordion-item" href="__URL__/../Resource/myProject" id="myProjectNav">我的项目</a>
+                </li>
+               <!-- <li class="accordion-inner">
+                    <a class="accordion-item" href="__URL__/../Resource/projectProfile" id="projectProfileNav">项目描述</a>
+                </li>
+                <li class="accordion-inner">
+                    <a class="accordion-item" href="__URL__/../Admin/Goods/dining" id="dining">Dining</a>
+                </li>
+                <li class="accordion-inner">
+                    <a class="accordion-item" href="__URL__/../Admin/Order/index" id="orders">Orders</a>
+                </li-->
+            </ul>
+        </li>
+        <if condition="($gp eq 'manager') OR ($gp eq 'admin')">
+            <li class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse"  href="#management">
+                        <i class="icon-folder-open"></i><span>资源管理</span>
+                    </a>
+                </div>
+                <ul id="management" class="accordion-body collapse <?php if($NAI=='people' || $NAI == 'projectList') echo 'in';?>">
+                    <li class="accordion-inner <?php if($NAI=='people') echo 'active';?>">
+                        <a class="accordion-item" href="__URL__/../Management/people" id="peopleNav">人员管理</a>
+                    </li>
+                    <li class="accordion-inner <?php if($NAI == 'projectList') echo 'active';?>">
+                        <a class="accordion-item" href="__URL__/../Management/projectList" id="projectListNav">项目管理</a>
+                    </li>
+                </ul>
+            </li>
+        </if>
+        <!--   Music
+        <li class="accordion-group ">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse"  href="#collapse3">
+                    <i class="icon-headphones"></i><span>Music</span>
+                </a>
+            </div>
+        </li>
+        <li class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse"  href="#collapse4">
+                    <i class="icon-eye-open"></i><span>Components</span>
+                </a>
+            </div>
+            <ul id="collapse4" class="accordion-body collapse" >
+                <li class="accordion-inner">
+                    <a class="accordion-item" href="__URL__/../Components/buttons" id="buttonNav">Buttons</a>
+                </li>
+                <li class="accordion-inner">
+                    <a class="accordion-item">Anim pariatur cliche...</a>
+                </li>
+                <li class="accordion-inner">
+                    <a class="accordion-item">Anim pariatur cliche...</a>
+                </li>
+            </ul>
+        </li>-->
+    </ul>
+</div>
+<link href='__URL__/../src/css/sbar.css' rel='stylesheet' type='text/css'>

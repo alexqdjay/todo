@@ -1,0 +1,21 @@
+<layout name="Layout/layout2"/>
+<div class="row-fluid">
+    <span class="logo"><i class="ficon-users"></i>BSM Cooperation Platform</span>
+    <div class="span4" id="loginBox">
+        <div class="box-content">
+            <input class="span12" placeholder="用户名或者邮箱" type="text">
+            <input class="span12" placeholder="密码" type="password">
+            <div class="span12" style="text-align: left;margin-bottom: 10px;">
+                <label class="checkbox inline">
+                    <input type="checkbox" name="remember" id="remember"checked>自动登录
+                </label>
+            </div>
+            <a class="btn btn-primary login" onclick="login()">登录</a>
+        </div>
+    </div>
+    <div class="span4" id="info">没有账号?<a href="__URL__/../Login/toSignUp">注册</a></div>
+</div>
+
+<link rel='stylesheet' type='text/css' href='__URL__/../src/css/login.css'/>
+<script src="__URL__/../assets/js/jquery.md5.js"></script>
+<script src="__URL__/../src/js/login.js"></script>

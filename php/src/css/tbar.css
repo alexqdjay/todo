@@ -1,0 +1,48 @@
+/**   tbar style  **/
+#headerBar{
+    margin-bottom: 0px;
+}
+
+.navbar .nav li.dropdown > .dropdown-toggle .caret{
+    border-bottom-color: #ffffff;
+    border-top-color: #ffffff;
+}
+
+#headerBar .navbar-inner{
+    background-color: #28303A;
+    background: linear-gradient(to left, #758A9F 0%, #28303A 100%) repeat scroll 0 0 transparent;
+    background: -webkit-gradient(linear,0% 0%,100% 100%, to(rgba(117,138,159,.7)), from(rgba(40,48,58,1)));
+    line-height: 30px;
+}
+
+
+#headerBar .brand{
+    text-shadow: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.brand i{
+    font-size: 17px;
+    color: #1299da;
+}
+
+#versionInfo{
+    margin-left: 3px;
+    font-size: 10px;
+}
+
+#headerBar ul.nav{
+    margin-top: 5px;
+}
+
+#headerBar .nav li.dropdown.open > .dropdown-toggle{
+    color: #28303A;
+}
+
+#headerBar ul.nav a.dropdown-toggle{
+    color: #ffffff;
+    text-shadow: none;
+    font-weight: 400;
+}

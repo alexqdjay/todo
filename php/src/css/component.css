@@ -1,0 +1,137 @@
+/**     btn     **/
+.btn-fan{
+    background: none repeat scroll 0 0 #4387BF;
+    border: 1px solid #3883C0;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    margin: 0;
+    padding: 7px 14px;
+    text-shadow: none;
+    transition: all 0.1s linear 0s;
+    vertical-align: middle;
+}
+
+.btn-fan:hover{
+}
+
+/**     cal     **/
+.fc-border-separate tr.fc-last th{
+    border-color:#DAE3E9 ;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.fn-cal .fc-event-skin{
+    background-color: #0083BB;
+    border-color: #0083BB;
+}
+
+.ui-widget-content{
+    border-color:#DAE3E9 ;
+}
+.ui-widget-header {
+    background-image: none !important;
+    background-color: transparent;
+}
+
+.fc-header-title h2{
+    font-size: 20px;
+}
+
+/**     Tooltip     **/
+.tooltip-inner{
+    background-color: #758A9F !important;
+    color: #ffffff !important;
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color:  #758A9F !important;
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color:  #758A9F !important;
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color:  #758A9F !important;
+}
+
+.tooltip.bottom .tooltip-arrow{
+    border-bottom-color: #758A9F !important;
+}
+
+/***       Slide Panel   ****/
+.fn-slide-container{
+    position: absolute;
+}
+
+.fn-add-container{
+    line-height: 20px;
+}
+
+.fn-add-list{
+    margin: 0px;
+    list-style: none;
+}
+
+.fn-add-list li{
+    margin: 3px 2px 5px;
+    display: inline-block;
+}
+
+.fn-add-list li div.fn-add-list-item{
+    display: inline-block;
+    border: 1px solid #DAE3E9;
+    border-radius: 3px;
+    padding: 2px 5px;
+}
+
+.fn-add-list li div.fn-add-list-item span{
+    margin-right: 3px;
+}
+
+.fn-add-btn{
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #f0f0f0;
+    padding: 2px 3px;
+    border-radius: 5px;
+}
+
+.fn-add-list li.fn-add-btn-li {
+    display: block;
+    clear: both;
+}
+
+.fn-add-container a,.fn-add-container a:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/**      table       **/
+.fn-table tbody thead th {
+    font-size: 12px;
+}
+.fn-table tbody tr td {
+    line-height: 25px;
+    border-top: 1px solid #EDF2F7;
+}
+.fn-table-noneborder tr td {
+    line-height: 25px;
+    border-top-color: transparent;
+}
+
+/**     select2     **/
+.select2-result-label i{
+    color: #444;
+}
+

@@ -1,0 +1,43 @@
+.fn-container3 .row [class*="span"],.fn-container3 .row-fluid [class*="span"]{
+    padding: 0px 15px;
+}
+
+.profile-header{
+    display: inline-block;
+}
+
+#profile .control-group{
+    margin-bottom: 5px;
+}
+
+#profile h3{
+    margin-bottom: 15px;
+}
+
+#prjName {
+    margin-left: 50px;
+}
+
+#profile .control-group .control-label {
+    display: inline-block;
+    text-align: right;
+    width: 60px;
+    color: #777;
+    font-size: 12px;
+}
+
+#profile .control-group .controls{
+    display: inline-block;
+    margin-left: 15px;
+}
+
+#profile .control-group .controls span{
+}
+
+#userTable{
+    margin: 0px;
+}
+
+#userTable th{
+    font-size: 12px;
+}

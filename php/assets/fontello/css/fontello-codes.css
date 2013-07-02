@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+ 
+.ficon-pause:before { content: '\2389'; } /* '⎉' */
+.ficon-stop:before { content: '\25a0'; } /* '■' */
+.ficon-play:before { content: '\25b6'; } /* '▶' */
+.ficon-right:before { content: '\27a1'; } /* '➡' */
+.ficon-left:before { content: '\2b05'; } /* '⬅' */
+.ficon-down-open:before { content: '\e75c'; } /* '' */
+.ficon-left-open:before { content: '\e75d'; } /* '' */
+.ficon-right-open:before { content: '\e75e'; } /* '' */
+.ficon-up-open:before { content: '\e75f'; } /* '' */
+.ficon-spin1:before { content: '\e830'; } /* '' */
+.ficon-spin2:before { content: '\e831'; } /* '' */
+.ficon-spin5:before { content: '\e838'; } /* '' */
+.ficon-firefox:before { content: '\e840'; } /* '' */
+.ficon-chrome:before { content: '\e841'; } /* '' */
+.ficon-ie:before { content: '\e843'; } /* '' */
+.ficon-users:before { content: '\e800'; } /* '' */
+.ficon-volume-off:before { content: '🔇'; } /* '\1f507' */
+.ficon-volume-down:before { content: '🔉'; } /* '\1f509' */
+.ficon-volume-up:before { content: '🔊'; } /* '\1f50a' */
+.ficon-clock:before { content: '🕔'; } /* '\1f554' */

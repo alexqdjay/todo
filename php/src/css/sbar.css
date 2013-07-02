@@ -1,0 +1,131 @@
+/**   sbar style  **/
+#sidebar {
+    width: 220px;
+    position: absolute;
+}
+
+
+#sbarList{
+    list-style: none;
+    margin: 0px;
+    padding-left:10px;
+    padding-right: 20px;
+    margin-left: 10px;
+    padding-top: 30px;
+    position: absolute;
+}
+
+#sbarList li {
+    padding: 0px;
+    border: none;
+    margin: 0px;
+}
+
+#sbarList li.active a{
+    color: #33455A;
+}
+
+#sbarList li.active:before{
+    content: '';
+    display: block;
+    height: 15px;
+    width: 15px;
+    float: right;
+    transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    position: relative;
+    top: 20px;
+    right: -42px;
+    background-color: #ffffff;
+    box-shadow: -2px 2px 2px rgba(77,77,77,.1);
+    z-index: 2;
+}
+
+#sbarList li.active a i[class^="icon"] {
+    opacity: 0.7;
+}
+
+#sbarList .accordion-group {
+    font-size: 15px;
+    width: 160px;
+    border-bottom: 1px solid #DAE1E8;
+    box-shadow: 0 2px 1px -1px #FFFFFF;
+}
+
+#sbarList .accordion-group .accordion-heading{
+    display: block;
+}
+
+.accordion-heading a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #7F8C9A;
+    font-weight: 700;
+}
+
+.accordion-heading a:HOVER{
+    color: #33455A;
+}
+
+.accordion-heading a i[class^="icon"] {
+    margin-right: 5px;
+    margin-top: 3px;
+    opacity: 0.4;
+}
+
+.accordion-heading a:hover i[class^="icon"] {
+    opacity: 0.7;
+}
+
+#sbarList .accordion-group div {
+    padding: 15px 4px;
+}
+
+#sbarList ul.accordion-body{
+    background-color: #eeeeee;
+    margin-left: -20px;
+    margin-right: -35px;
+    padding-left: 60px;
+    list-style: none;
+    box-shadow: 2px 0px 4px 1px rgba(0,0,0,.5) inset;
+}
+
+#sbarList ul.accordion-body li a{
+    color: #7F8C9A;
+    display: block;
+    line-height: 30px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    margin-left: -20px;
+    padding: 5px 0px 7px 20px;
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    transition: font-size .5s,color .5s;
+}
+
+#sbarList ul.accordion-body li.active:before{
+    content: '';
+    display: block;
+    height: 20px;
+    width: 20px;
+    float: right;
+    transform:rotate(45deg);
+    position: relative;
+    right: -15px;
+    top: 7px;
+    background-color: #ffffff;
+    box-shadow: -2px 2px 2px rgba(77,77,77,.1);
+    z-index: 4;
+}
+
+#sbarList ul.accordion-body li.active a{
+    color: #33455A;
+    font-size: 15px;
+    padding-left: 30px;
+}
+
+#sbarList ul.accordion-body li a:hover{
+    color: #33455A;
+    font-size: 15px;
+}
