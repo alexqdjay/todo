@@ -1,0 +1,11 @@
+<html>
+<body>
+<h3 style="font-size:12px;">Hi ${user.userName}, welcome to the Chipping Sodbury On-the-Hill message boards!</h3>
+${id}
+<div>
+   Your email address is <a href="mailto:${user.emailAddress}">${user.emailAddress}</a>.
+</div>
+<img src='http://localhost:8080/spring002/app/hello/test' alt=''>
+</body>
+
+</html>
