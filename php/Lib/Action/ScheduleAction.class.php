@@ -18,6 +18,44 @@ class ScheduleAction extends AuthAction{
         $this->display();
     }
 
+	 public function worklist($t = 0) {
+        $this->uid = $_SESSION['uid'];
+        $this->title = "工作列表";
+        if($t == 0) {
+            $t = time();
+        }else {
+            $t = strtotime($t);
+        }
+        $firstDayStr = date('Y-m-01',$t);
+        $firstDay = strtotime($firstDayStr);
+        $lastDay = strtotime("$firstDayStr +1 month");
+
+        $datas = M('schedule')->join("project on project.id=schedule.project_id")->
+            field("schedule.*,project.name as pname")->
+            where("start<$lastDay and end>$firstDay and user_id=$this->uid")->select();
+
+        $res = array();
+        foreach($datas as $i=>$data) {
+            $start = (int)$data['start']>$firstDay?(int)$data['start']:$firstDay;
+            $end = (int)$data['end']<$lastDay?(int)$data['end']:$lastDay;
+            $sd = getdate($start);
+            $sd = $sd['mday'];
+            $ed = getdate($end);
+            $ed = $ed['mday'];
+            if($data['mode'] == 1)$ed -= 1;
+            for($sd;$sd<=$ed;$sd++) {
+                if($res[$sd] == null) {
+                    $res[$sd] = array();
+                }
+                array_push($res[$sd],$data);
+            }
+        }
+        $this->M =  date('m',$start);
+        $this->list = $res;
+
+        $this->display();
+    }
+
     public function save($id=null,$project,$desc,$start,$end,$addr=0,$owner=0,
                          $subject,$mode,$startDate,$endDate,$startTime,$endTime) {
         $uid = $this->myid;

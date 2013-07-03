@@ -1,0 +1,57 @@
+<layout name="Layout/layout3"/>
+<div class="row-fluid">
+    <div class="span11" id="dateList">
+        <?php
+            for($j=0;$j<3;$j++) {
+                echo "<ul>";
+                  echo "<h2><a>";
+                  echo ($j*10+1)."-".($j*10+10);
+                  echo "<i class='icon-chevron-down tdown'></i></a></h2>";
+
+                for($i=$j*10+1;$i<=$j*10+10;$i++){
+                    if($list[$i] != null) {
+                        echo "<li><h3>$i<small>/$M</small></h3><i class='icon-tag'></i>";
+                        echo '<dl>';
+                        foreach($list[$i] as $data) {
+                            echo "<dt>".$data['pname']."<span>".$data['subject'];
+                            echo "<i class='time'>(";
+                            if($data['mode'] == 1) {
+                                echo "09:00 - 17:00";
+                            }  else {
+                                echo getTime($data['starttime'])." - ".getTime($data['endtime']);
+                            }
+                            echo ")</i>";
+                            echo "</span>";
+                            if(strlen($data['desc'])>0) {
+                                echo "<i>".str_replace("\n",'<br>',$data['desc'])."</i>";
+                            }
+                            echo "</dt>";
+                        }
+                        echo '</dl>';
+                        echo '</li>';
+                    }
+                }
+                   echo "</ul>";
+              }
+
+            function getTime($s) {
+                if($s == 0) {
+                    return "09:00";
+                }
+                else if($s == 1) {
+                    return "12:00";
+                }
+                else if($s == 2) {
+                    return "17:00";
+                }
+                else if($s == 3) {
+                    return "21:00";
+                }
+            }
+       ?>
+    </div>
+
+    <a class="fn-btn fn-btn-info" id="expBtn"><i class="icon-white icon-chevron-down"></i></a>
+</div>
+<link rel='stylesheet' type='text/css' href='__URL__/../src/css/worklist.css'/>
+<script type="text/javascript" src="__URL__/../src/js/worklist.js"></script>
