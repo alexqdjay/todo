@@ -53,6 +53,7 @@ $(function(){
         droppable: true,
         ignoreTimezone:false,
         weekMode:'variable',
+        allDayDefault:false,
         events:{
             url:URL+'/../Schedule/showData'
         },
@@ -338,7 +339,6 @@ function removeSource(id) {
     if(sourceMapCount <0)sourceMapCount=0;
     sourceMap["s_"+id] = null;
     for(var k in colorsMap){
-        alert(k+"="+colorsMap[k]);
         if(colorsMap[k] == id) {
             colorsMap[k] = null;
         }
@@ -388,24 +388,24 @@ function editReturn() {
 
 function generateBriefScheduleHtml(schedule,readOnly){
     try{
-    var startDate = $.datepicker.parseDate('mm/dd/yy',schedule.startdate);
-    var endDate = $.datepicker.parseDate('mm/dd/yy',schedule.enddate);
-    var html = '<p>'+schedule.name+'</p>';
-    html += '<p>'+$.datepicker.formatDate('mm/dd',startDate)+"("+Fan.util.getWeekName(startDate.getDay())+")";
-    if(schedule.mode != 1) {
-        html += ','+ getTimeString(schedule.starttime);
-    }
-    html += ' - ' + $.datepicker.formatDate('mm/dd',endDate)+"("+Fan.util.getWeekName(endDate.getDay())+")";
-    if(schedule.mode != 1) {
-        html += ','+ getTimeString(schedule.endtime);
-    }
-    +'</p>';
-    if(!readOnly && !schedule.readOnly) {
-        html += "<hr style='margin: 5px 0px;'>";
-        html += "<p><a class='fn-btn pull-left fn-btn-danger' style='margin-bottom: 5px' " +
-            "onclick='onDelSchedule();'>删除</a>" +
-            "<a class='fn-btn pull-right fn-btn-primary' onclick='onEditSchedule()'>编辑</a></p>";
-    }
+        var startDate = $.datepicker.parseDate('mm/dd/yy',schedule.startdate);
+        var endDate = $.datepicker.parseDate('mm/dd/yy',schedule.enddate);
+        var html = '<p>'+schedule.name+'</p>';
+        html += '<p>'+$.datepicker.formatDate('mm/dd',startDate)+"("+Fan.util.getWeekName(startDate.getDay())+")";
+        if(schedule.mode != 1) {
+            html += ','+ getTimeString(schedule.starttime);
+        }
+        html += ' - ' + $.datepicker.formatDate('mm/dd',endDate)+"("+Fan.util.getWeekName(endDate.getDay())+")";
+        if(schedule.mode != 1) {
+            html += ','+ getTimeString(schedule.endtime);
+        }
+        +'</p>';
+        if(!readOnly && !schedule.readOnly) {
+            html += "<hr style='margin: 5px 0px;'>";
+            html += "<p><a class='fn-btn pull-left fn-btn-danger' style='margin-bottom: 5px' " +
+                "onclick='onDelSchedule();'>删除</a>" +
+                "<a class='fn-btn pull-right fn-btn-primary' onclick='onEditSchedule()'>编辑</a></p>";
+        }
     }catch(ee){
     }
     return html;
@@ -541,6 +541,12 @@ function editSave() {
             }
         }
     });
+}
+
+function goToWorklist() {
+    var date = $('#cal').fullCalendar('getDate');
+    var t = $.fullCalendar.formatDate(date,'yyyy-MM-dd');
+    window.open(URL+'/worklist/t/'+t);
 }
 
 function getTimeString(v){

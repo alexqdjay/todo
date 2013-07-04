@@ -18,9 +18,9 @@ class ScheduleAction extends AuthAction{
         $this->display();
     }
 
-	 public function worklist($t = 0) {
-        $this->uid = $_SESSION['uid'];
-        $this->title = "工作列表";
+    public function worklist($t = 0) {
+        $this->uid = $this->myid;
+        $this->showname = $this->myname;
         if($t == 0) {
             $t = time();
         }else {
@@ -32,8 +32,7 @@ class ScheduleAction extends AuthAction{
 
         $datas = M('schedule')->join("project on project.id=schedule.project_id")->
             field("schedule.*,project.name as pname")->
-            where("start<$lastDay and end>$firstDay and user_id=$this->uid")->select();
-
+            where("schedule.start<$lastDay and schedule.end>$firstDay and user_id=$this->uid")->select();
         $res = array();
         foreach($datas as $i=>$data) {
             $start = (int)$data['start']>$firstDay?(int)$data['start']:$firstDay;
@@ -52,7 +51,7 @@ class ScheduleAction extends AuthAction{
         }
         $this->M =  date('m',$start);
         $this->list = $res;
-
+        $this->title = "工作列表 (".date('Y-m',$start).")";
         $this->display();
     }
 
@@ -98,7 +97,7 @@ class ScheduleAction extends AuthAction{
         $S = M('Schedule');
         $where = array(
             'user_id'=>$uid,
-            '_string'=>"schedule.start<$end or schedule.end>=$start"
+            '_string'=>"(schedule.start<$end and schedule.end>$start)"
         );
         $datas = $S->join(array('project on project.id=schedule.project_id','user on user.id=createby'))->where($where)
             ->field('schedule.*,project.name,user.name createuser')->select();
@@ -115,7 +114,7 @@ class ScheduleAction extends AuthAction{
         $where = array(
             'createby'=>$uid,
             'user_id'=>array('NEQ',$uid),
-            '_string'=>"schedule.start<$end or schedule.end>=$start"
+            '_string'=>"(schedule.start<$end and schedule.end>$start)"
         );
         $datas = $S->join(array('project on project.id=schedule.project_id','user on user.id=createby'))->where($where)
             ->field('schedule.*,project.name,user.name createuser')->select();
@@ -131,13 +130,14 @@ class ScheduleAction extends AuthAction{
         $where = array(
             'user_id'=>$oid,
             'createby'=>array('NEQ',$uid),
-            '_string'=>"schedule.start<$end or schedule.end>=$start"
+            '_string'=>"(schedule.start<$end and schedule.end>$start)"
         );
         $datas = $S->join(array('project on project.id=schedule.project_id'))->where($where)
             ->field('schedule.*,project.name')->select();
         $this->processDatas($datas,true);
         $this->ajaxReturn($datas);
     }
+
 
     private function processDatas(&$datas,$isother=false) {
         if($datas == null)$data = array();
@@ -147,7 +147,9 @@ class ScheduleAction extends AuthAction{
                 $prj = mb_substr($prj,0,6,'utf8');
                 $prj .= '...';
             }
-            $data['title'] = $data['subject']." (".$prj.")";
+            $data['end'] = (int)$data['end'];
+            $data['start'] = (int)$data['start'];
+            $data['title'] = trim($data['subject'])." (".$prj.")";
             if($data['end']<time() || $isother) {
                 $data['readOnly'] = true;
             }
@@ -157,12 +159,12 @@ class ScheduleAction extends AuthAction{
         }
     }
 
-	public function listOneWeek($start=0) {
+    public function listOneWeek($start=0) {
         //get peoples' id
-        $uid = $_SESSION['uid'];
+        $uid = $this->myid;
         $me = M('user')->where('id='.$uid)->find();
         if($me['group']=='admin' || $me['group'] == 'manager') {
-            $users = M('user')->field('id')->where(array("group"=>array("NEQ",'admin1')))->select();
+            $users = M('user')->field('id')->where(array("group"=>array("NEQ",'admin')))->select();
         }
 
         // ts region
@@ -180,18 +182,19 @@ class ScheduleAction extends AuthAction{
             $n = $theday['wday'] -1;
         }
         $mon_0_ts = $theday_0_ts - $n*24*3600;
-        $next_mon_0_ts = $mon_0_ts + 24*3600*7;
+        $next_week_0_ts = $mon_0_ts + 24*3600*7;
 
         // get schedule data
         $S = M('schedule');
         $rs = array();
         $where = array(
-            "start"=>array('LT',$next_mon_0_ts),
-            "end"=>array('GT',$mon_0_ts)
+            "schedule.start"=>array('LT',$next_week_0_ts),
+            "schedule.end"=>array('GT',$mon_0_ts)
         );
         foreach($users as $user) {
             $where['user_id'] = $user['id'];
-            $data = $S->where($where)->select();
+            $data = $S->join("project on project.id=schedule.project_id")->field("schedule.*,project.name as pname")
+                ->where($where)->select();
             $rs[$user['id']] = $data;
         }
 

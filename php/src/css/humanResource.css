@@ -6,6 +6,7 @@
 
 #humanTable th {
     line-height: 50px;
+    font-size: 13px;
 }
 
 #humanTable {
@@ -32,9 +33,24 @@
     box-shadow: 0px 0px 4px rgba(0,0,0,.4);
 }
 
+#humanTable tbody tr.hiderow td{
+    line-height: 0px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+#humanTable tbody tr.hiderow td .event{
+    display: none;
+}
+
 .event {
     color: #eeeeee;
     line-height:20px;
     font-size: 11px;
     padding: 2px 4px;
+}
+
+#timeRegion{
+    font-size: 30px;
+    color: #0088CC;
 }

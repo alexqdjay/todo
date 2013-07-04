@@ -152,6 +152,8 @@ class ProjectAction extends AuthAction{
             $project = $P->join("user on user.id=project.manager_id")->
                 field('project.*,user.name username')->where('project.id='.$pid)->find();
             $project["date"] = date('m/d/Y',$project['time']);
+            $project['startts'] = $project["start"];
+            $project["start"] = date('m/d/Y',$project['start']);
             $this->pro = $project;
 
             $PU = M('project_partner');
@@ -160,11 +162,11 @@ class ProjectAction extends AuthAction{
             if($data == null) $data = array();
             $this->list = $data;
 
-            $ts0 = $project['time']-$project['start'];
-            $ts1 = time() - $project['start'];
+            $ts0 = $project['time']-$project['startts'];
+            $ts1 = time() - $project['startts'];
             $p = $ts1/$ts0;
             if($p > 1)$p =1;
-            $this->percent = $p*100;
+            $this->percent = floor($p*100);
         }
         $this->display();
     }

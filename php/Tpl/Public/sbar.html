@@ -25,9 +25,12 @@
                     <i class="icon-briefcase"></i><span>我的资源</span>
                 </a>
             </div>
-            <ul id="resourceManager" class="accordion-body collapse <?php if($NAI=='myProject' || $NAI == 'allProject') echo 'in';?>">
+            <ul id="resourceManager" class="accordion-body collapse <?php if($NAI=='myProject' || $NAI == 'allProject' || $NAI=='mypartner') echo 'in';?>">
                 <li class="accordion-inner <?php if($NAI=='myProject'|| $NAI == 'allProject') echo 'active';?>">
                     <a class="accordion-item" href="__URL__/../Resource/myProject" id="myProjectNav">我的项目</a>
+                </li>
+                <li class="accordion-inner <?php if($NAI=='mypartner'|| $NAI == 'mypartner') echo 'active';?>">
+                    <a class="accordion-item" href="__URL__/../Resource/mypartner" id="mypartnerNav">人员情况</a>
                 </li>
                <!-- <li class="accordion-inner">
                     <a class="accordion-item" href="__URL__/../Resource/projectProfile" id="projectProfileNav">项目描述</a>

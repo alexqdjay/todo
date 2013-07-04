@@ -9,7 +9,9 @@ $(function(){
 
     $('#dateList ul li').siblings().hide();
 
-    $('#dateList ul li').siblings().slideToggle(1000);
+    setTimeout(function(){
+        $('#dateList ul li').siblings().slideToggle(1000);
+    },1000);
 
     $('ul h2 a').click(function(){
         $(this).parent().siblings().slideToggle();

@@ -1,14 +1,20 @@
 <layout name="Layout/layout3"/>
 <div class="row-fluid">
-    <div class="span11" id="dateList">
+    <div class="span9" id="dateList">
         <?php
             for($j=0;$j<3;$j++) {
+                if($j==2) {
+                    $end = $j*10+10 + 1;
+                }
+                else {
+                    $end = $j*10+10;
+                }
                 echo "<ul>";
                   echo "<h2><a>";
-                  echo ($j*10+1)."-".($j*10+10);
-                  echo "<i class='icon-chevron-down tdown'></i></a></h2>";
+                  echo ($j*10+1)."-".($end);
+                  echo "<i class='icon-chevron-up tdown'></i></a></h2>";
 
-                for($i=$j*10+1;$i<=$j*10+10;$i++){
+                for($i=$j*10+1;$i<=$end;$i++){
                     if($list[$i] != null) {
                         echo "<li><h3>$i<small>/$M</small></h3><i class='icon-tag'></i>";
                         echo '<dl>';

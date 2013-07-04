@@ -106,22 +106,27 @@ class ResourceAction extends AuthAction{
         $this->display();
     }
 
-	public function humanResource($start=0) {
+    public function mypartner($start=0) {
         $this->title = "人力资源";
 
-
-
         // find me to get Group
-        $uid = $_SESSION['uid'];
+        $uid = $this->myid;
         $U = M('user');
         $me = $U->where('id='.$uid)->find();
 
         // manager select
         if($me['group'] == 'admin' || $me['group']=='manager') {
-            $data = $U->where( array('group'=>array('NEQ','admin1')))->select();
+            $data = $U->where( array('group'=>array('NEQ','admin')))->select();
+        }
+        else {
+            $data = M('partner')->join('user on user.id=partner.user_id')->where('manager_id='.$uid)->select();
         }
 
         $this->list =$data;
+        $this->NAI = "mypartner";
+        $this->MyName = $this->myname;
+        $this->showname = $this->myname;
+        $this->gp = $this->mygroup;
         $this->display();
     }
 
