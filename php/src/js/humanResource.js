@@ -138,14 +138,21 @@ function initEvents(events) {
     if(events == null)return weekEvents;
     for(var i=0;i<events.length;i++) {
         var event = events[i];
+        var startTs = parseInt(event.start)*1000;
+        startTs = startTs>weekDaytime[0]?startTs:weekDaytime[0];
+        var endTs = parseInt(event.end)*1000;
+        endTs = endTs<weekDaytime[6]?endTs:weekDaytime[6];
+
         var tmpDate = new Date();
-        tmpDate.setTime(parseInt(event.start)*1000);
+        tmpDate.setTime(startTs);
         var start = tmpDate.getDay();
         start = start==0?7:start;
-        tmpDate.setTime(parseInt(event.end)*1000);
+
+        tmpDate.setTime(endTs);
         var end = tmpDate.getDay();
         end = end==0?7:end;
         end = end<start?end+7:end;
+
         for(start;(event.mode ==1 && start<end)||(event.mode ==0 && start<=end) && start<=7;start++){
             if(weekEvents[start] == null) {
                 weekEvents[start] = [];

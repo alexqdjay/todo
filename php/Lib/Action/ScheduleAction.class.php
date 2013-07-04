@@ -49,9 +49,9 @@ class ScheduleAction extends AuthAction{
                 array_push($res[$sd],$data);
             }
         }
-        $this->M =  date('m',$start);
+        $this->M =  date('m',$t);
         $this->list = $res;
-        $this->title = "工作列表 (".date('Y-m',$start).")";
+        $this->title = "工作列表 (".date('Y-m',$t).")";
         $this->display();
     }
 
