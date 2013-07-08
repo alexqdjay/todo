@@ -4,9 +4,10 @@
     text-align: center;
 }
 
-#humanTable th {
+#humanTable th,#tableBar th {
     line-height: 50px;
     font-size: 13px;
+    text-align: center;
 }
 
 #humanTable {
@@ -53,4 +54,26 @@
 #timeRegion{
     font-size: 30px;
     color: #0088CC;
+}
+
+#topBar {
+    height: 40px;
+}
+
+#topBar div{
+    position: absolute;
+    left: 200px;
+}
+
+#topBar a[class*="fn-btn"] {
+    margin-top: 5px;
+    position: absolute;
+}
+
+#topBar a:last-child {
+    left: 100px;
+}
+
+#tableBar {
+    margin-bottom: 5px;
 }

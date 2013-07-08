@@ -49,8 +49,23 @@ $(function(){
 
     initDayAndGetSchedule();
 
-//    initDaytime(new Date());
-//    getSchedules(weekDaytime[0]);
+//    var tbar = $('#topBar');
+//    var ttbar = $('#tableBar').parent().parent();
+//    $(window).scroll(function(){
+////        ss.text(document.documentElement.scrollTop);
+//        if($(document).scrollTop()>56) {
+//            tbar.css("position","fixed");
+//            tbar.css("top","0px");
+//            ttbar.css("position","fixed");
+//            ttbar.css("top","40px");
+//        }
+//        else {
+//            tbar.css("position","");
+//            ttbar.css("position","");
+//        }
+//    });
+
+
 });
 
 function showRow(row) {
@@ -119,6 +134,7 @@ function getSchedules(start) {
                             createEvent(tar,events[i]);
                         }
                     }
+
                     show_Sat = show_Sat || (weekEvents["6"]!=null && weekEvents["6"].length>0);
                     show_Sun = show_Sun || (weekEvents["7"]!=null && weekEvents["7"].length>0);
                 }
@@ -126,9 +142,19 @@ function getSchedules(start) {
             if(!show_Sat) {
                 $('.th6').hide();
             }
+            else {
+                $('.th6').show();
+            }
             if(!show_Sun) {
                 $('.th7').hide();
             }
+            else {
+                $('.th7').show();
+            }
+//            $('#humanTable thead th').each(function(i){
+//                var tth = $('#tableBar thead th').get(i);
+//                $(tth).width($(this).width());
+//            });
         }
     });
 }
@@ -152,6 +178,7 @@ function initEvents(events) {
         var end = tmpDate.getDay();
         end = end==0?7:end;
         end = end<start?end+7:end;
+        if(event.mode==1 && end==7)end++;
 
         for(start;(event.mode ==1 && start<end)||(event.mode ==0 && start<=end) && start<=7;start++){
             if(weekEvents[start] == null) {

@@ -107,7 +107,7 @@ class ResourceAction extends AuthAction{
     }
 
     public function mypartner($start=0) {
-        $this->title = "管理人员";
+        $this->title = "人员状况";
 
         // find me to get Group
         $uid = $this->myid;
