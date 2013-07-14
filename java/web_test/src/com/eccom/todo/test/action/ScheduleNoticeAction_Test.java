@@ -4,8 +4,6 @@
 package com.eccom.todo.test.action;
 
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.method.HandlerMethod;
 
 import com.eccom.todo.action.ScheduleNoticeAction;
 
@@ -15,16 +13,22 @@ import com.eccom.todo.action.ScheduleNoticeAction;
  */
 public class ScheduleNoticeAction_Test extends ActionTestBase {
 	
-	@Autowired
 	public ScheduleNoticeAction action;
 	
 	@Test
-	public void testHelloWorld() throws Exception {
-        request.setServletPath("/app/scheduleNotice/noticeNew/sid/1");
+	public void testNoticeNew() throws Exception {
+        request.setServletPath("/scheduleNotice/noticeNew/sid/1");
+        request.setMethod("GET");
         
-        handlerAdapter.handle(request, response, new HandlerMethod(action, "noticeNew",String.class));
+        handlerAdapter.handle(request, response, mapping.getHandler(request).getHandler());
         
         System.out.println(response.getContentAsString());  
+        
+        try {
+			Thread.sleep(20000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	

@@ -78,6 +78,6 @@ public class MailSender_Test {
 		Map<String, Object> model = new HashMap<String, Object>();
 		String text = VelocityEngineUtils.mergeTemplateIntoString(engine, "com/eccom/todo/test/util/scheduleNotice.vm", model);
 		mailSenderService.sendHtml(from, new String[]{to}, "asdad", text, new String[]{});
-	}
+	} 
 	
 }
