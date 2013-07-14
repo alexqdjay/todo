@@ -36,7 +36,11 @@ public class ScheduleMailNoticeServiceImpl implements ScheduleMailNotice {
 	public void notice(int scheduleId) {
 		Map<String, Object> schedule = scheduleDao.findOne(scheduleId);
 		
-		String text = VelocityEngineUtils.mergeTemplateIntoString(engine, "resource/scheduleNotice.vm", new HashMap<String, Object>());;
+		Map<String, Object> data = new HashMap<String, Object>();
+		
+		data.put("schedule", schedule);
+		
+		String text = VelocityEngineUtils.mergeTemplateIntoString(engine, "resource/scheduleNotice.vm", data);
 		
 		mailService.send("alexqdjay@163.com",
 				new String[]{schedule.get("mail").toString()},new String[]{},

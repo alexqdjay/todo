@@ -23,12 +23,12 @@ public class ScheduleNoticeAction {
 	@Autowired
 	public ScheduleMailNotice mailNotice;
 
-	@RequestMapping(value="/noticeNew/sid/{sid}",method=RequestMethod.GET)
+	@RequestMapping(value="/noticeNew/sid/{sID}",method=RequestMethod.GET)
 	@ResponseBody
-	public boolean noticeNew(@PathVariable String sid) {
+	public boolean noticeNew(@PathVariable String sID) {
 		
 		try {
-			int id = Integer.parseInt(sid);
+			int id = Integer.parseInt(sID);
 			mailNotice.notice(id);
 			return true;
 		} catch(NumberFormatException e) {

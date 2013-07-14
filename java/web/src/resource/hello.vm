@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body style="margin:0px;padding:0px;">
+
+    <!-- Heard  -->
+    <div id="header" style="background-color:#758A9F;">
+        <a class="brand" href="#" style="font-size:20px;
+            font-weight:700;color: #ffffff;text-decoration: none;display: inline-block;padding: 6px 15px;">BSM</a>
+    </div>
+
+    <div style="background-color:#FAFAFA;">
+        <table width="100%" border="0px" cellpadding="0" cellspacing="0" >
+            <tbody>
+                <tr>
+                    <td valin="top" align="center" height="0"
+                        style="padding-top:10px;padding-bottom:40px;font-family:'Microsoft YaHei'">
+                        <table width="678" cellpadding="0" border="0px"
+                               align="center" cellspacing="0" style="background-color: #ffffff;padding: 15px 25px;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table width="100%">
+                                            <tr>
+                                                <td>
+                                                    <span style="font-weight:500;font-size:15px;">Hi, ${user} :</span>
+                                                </td>
+                                                <td align="right">
+                                                    <a href="www.baidu.com"
+                                                       style="background-color: #5BC0DE;color:#ffffff;padding: 4px 12px;text-decoration: none;">详情</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="background-color:#dddddd;height:1px;margin:5px 0px 10px;"></div>
+
+                                        <div style="word-break:break-all;margin:50px 0px;">
+                                            <p style="color:#777;line-height: 40px;font-size:13px;">&ensp;&ensp;您好,我是<span style="color:#0088cc;margin: 0px 3px;">BSM协作平台<span style="font-size:12px;color:#777;">
+                                            (BSM Cooperation Platform)</span></span>Email助手，从今天起我将投入试用，很高兴能为你服务！
+                                            </p>
+                                        </div>
+                                        <div style="text-align:center;margin-bottom: 30px;">
+                                            <img src="__URL__/../src/img/logo/email.jpg" width="200px;">
+                                        </div>
+                                        <div style="background-color:#dddddd;height:1px;margin:15px 0px 5px;"></div>
+                                        <table width="100%">
+                                            <tr>
+                                                <td algin="center" style="text-align: center;">
+                                                    <span style="font-size:10px;color:#999;">此邮件由ToDo系统自动发出，BSM协作平台</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
