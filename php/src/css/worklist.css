@@ -69,8 +69,11 @@
     font-weight: normal;
 }
 
-#dateList ul li dl dt i{
+#dateList ul li dl dt div{
     color: #bbbbbb;
+    word-wrap:break-word;
+    word-break:normal;
+    width: 400px;
 }
 
 #dateList ul h2 a:hover{

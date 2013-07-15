@@ -7,6 +7,8 @@
  * To change this template use File | Settings | File Templates.
  */
 
+require('Lib/Service/RemoteRequestService.class.php');
+
 class ScheduleAction extends AuthAction{
 
     public function index() {
@@ -77,6 +79,10 @@ class ScheduleAction extends AuthAction{
             $data['entrytime'] = microtime(true)*1000;
             $data['createby'] = $uid;
             $b = $S->add($data);
+
+            if($owner != $uid && $b) {
+                RemoteRequestService::remoteRequest_GET("/scheduleNotice/noticeNew/sid/$b");
+            }
         }
         else {
             $b = $S->where(array('id'=>$id))->save($data);

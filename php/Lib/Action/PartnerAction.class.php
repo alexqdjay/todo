@@ -52,7 +52,7 @@ class PartnerAction extends Action{
             $query = "1=1";
         }
         else {
-            $query = "user.name like '$query%' or user.name like '$query%'";
+            $query = "user.name like '$query%' or user.username like '$query%'";
         }
 
         if($uid != 1) {
